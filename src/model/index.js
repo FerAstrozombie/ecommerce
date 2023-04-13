@@ -22,7 +22,7 @@ export async function getApiDao(dbType){
             ProductManager = new ProductMongoDao(ProductModel);
             const {CarritoDaosMongo} = await import("./daos/carritos/carritoMongoDB.js");
             CartManager = new CarritoDaosMongo(CartModel);
-            const { UserMongoDao } = await import("./daos/users/userMongoDao.js");
+            const { UserMongoDao } = await import("./daos/users/UserMongoDao.js");
             UserManager = new UserMongoDao(UserModel);
             const { ChatsMongoDao } = await import("./daos/chats/chats.MongoDao.js");
             ChatManager = new ChatsMongoDao(ChatManager);
