@@ -3,7 +3,6 @@ import { ProductSevice } from "../services/product.service.js";
 import { UserModel } from "../model/dbmodels/user.model.js";
 import { logger } from "../loggers/logger.js";
 import { transporter } from "../messages/email.js";
-import { twilioClient, twilioPhone, adminPhone } from "../messages/whatsaap.js";
 import { options } from "../config/config.js";
 import { OrdenModel } from "../model/dbmodels/orden.model.js";
 import { UserService } from "../services/user.service.js"; 
@@ -151,15 +150,6 @@ class CartController{
             subject: `Nueva orden de: ${user.nombre} email: ${user.email}`,
             html: emailTemplate           
         });
-        try {
-            await twilioClient.messages.create({
-            from: twilioPhone,
-            to: adminPhone,
-            body: `Nueva orden de: ${user.nombre} email: ${user.email}`,
-        })
-        } catch (error) {
-            logger.error(error);
-        };
         res.render("compra",{
             user: userDto,
             productos : ordenRender
