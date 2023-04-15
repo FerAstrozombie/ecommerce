@@ -4,6 +4,6 @@ import { CategoryController } from "../../controllers/category.controller.js"
 
 const router = express.Router();
 
-router.get("/:categoria", checkUserLoggued, CategoryController.getProduct)
+router.get("/:categoria", checkUserLoggued, CategoryController.getProduct);
 
 export {router as categoryRouter}
