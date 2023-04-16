@@ -22,7 +22,7 @@ export const options = {
         NODE_ENV: objArgs.env || "DEV",
         DV_TYPE: process.env.DV_TYPE || "mongo",
         SECRET_SESSION: process.env.SECRET_SESSION,
-        host: process.env.HOST
+        APP_HOST: process.env.HOST
     },
     mongo:{
         url: objArgs.env === "TEST" ? process.env.MONGO_URL_test : process.env.MONGO_URL

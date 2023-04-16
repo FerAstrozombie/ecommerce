@@ -9,7 +9,7 @@ const createHash = (password)=>{
     return bcrypt.hashSync(password,bcrypt.genSaltSync());
 };
 
-const host = options.server.host;
+const host = options.server.APP_HOST;
 
 const authPassport = (passport)=>{
     
