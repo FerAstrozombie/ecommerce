@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt";
 
 const userCollection = "users";
 
@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
         },
         avatar: {
             type: String,
-            require: true
+            reuequire: true
         },
         carrito: {
             type: Array,

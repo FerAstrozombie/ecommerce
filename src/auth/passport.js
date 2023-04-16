@@ -9,6 +9,8 @@ const createHash = (password)=>{
     return bcrypt.hashSync(password,bcrypt.genSaltSync());
 };
 
+const host = options.server.host;
+
 const authPassport = (passport)=>{
     
     passport.serializeUser((user, done) => {
@@ -32,7 +34,7 @@ const authPassport = (passport)=>{
                 let carritoCreado = await CartSevice.saveCart(carrito)
                 const user = await UserModel.findOne({email:username});
                 if(user) return done(null, false, {message:"El usuario ya esta registrado"});
-                let urlImg = `http://localhost:8080/public/uploads/${req.file.originalname}`
+                let urlImg = `${host}/public/uploads/${req.file.originalname}`
                 const newUser = {
                     email:username,
                     password: createHash(password),
