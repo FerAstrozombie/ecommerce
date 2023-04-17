@@ -8,6 +8,9 @@
                             <img class="imgCarrito" src="{{producto.url}}" alt="{{producto.nombre}}">
                             <h3>Precio: ${{producto.precio}}</h3>
                             <h3>Stock disponible: {{producto.stock}}</h3>
+                            <h3>{{producto.descripcion}}</h3>
+                            <h3>Categoria: {{producto.categoria}}</h3>
+                        {{#if admin}}
                             <h3>Editar producto</h3>
                             <input class="contraseña" id="nombre" type="text" name="nombre" placeholder="Nuevo nombre" required />
                             <input class="contraseña" id="url" type="url" name="url" placeholder="Nueva url de la imagen" required />
@@ -15,6 +18,10 @@
                             <input class="contraseña" id="stock" type="number" name="stock" placeholder="Nuevo stock" required />                     
                             <button class="botonEnviar" type="submit">Editar producto</button>
                         </form>
+                        <form action="/productos/{{producto.id}}" method="post">
+                            <button type="submit" class="userBtn">Eliminar producto</button>
+                        </form>
+                        {{/if}}
                     </div>
             </div>
         </div>

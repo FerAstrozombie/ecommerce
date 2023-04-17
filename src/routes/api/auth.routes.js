@@ -1,6 +1,5 @@
 import express from "express";
 import { AuthController } from "../../controllers/auth.controller.js";
-import { checkUserLoggued } from "../../middlewares/auth.middleware.js";
 
 const router = express.Router();
 

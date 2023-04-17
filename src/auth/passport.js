@@ -42,7 +42,8 @@ const authPassport = (passport)=>{
                     apellido: req.body.apellido,
                     dni: req.body.dni,
                     avatar: urlImg,
-                    carrito: carritoCreado,                    
+                    carrito: carritoCreado,   
+                    admin: false
                 };
                 const userCreated = await UserModel.create(newUser);
                 const emailTemplate = `<div>

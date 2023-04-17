@@ -37,7 +37,11 @@ const userSchema = new mongoose.Schema(
         },
         ordenes: {
             type: Array
-        }
+        },
+        admin: {
+            type: Boolean,
+            reuequire: true
+        },
     },
     {
         timestamps:true

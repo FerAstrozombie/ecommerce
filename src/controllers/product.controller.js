@@ -6,10 +6,20 @@ class ProductController{
             const response = await ProductSevice.getProducts();
             /* res.status(200).json({"productos" : response}) */
             const user = req.user.nombre;
-            res.render("productos",{
-                productos: response,
-                user: user
-            })
+            const dato = req.user.admin;
+            const admin = dato === true
+            if(admin){
+                res.render("productos",{
+                    productos: response,
+                    user: user,
+                    admin
+                })
+            }else{
+                res.render("productos",{
+                    productos: response,
+                    user: user,
+                })
+            }
         } catch (error) {
             res.status(400).json({
                 status: "ERROR",
@@ -35,9 +45,18 @@ class ProductController{
         try {
             const response = await ProductSevice.getById(req.params.id);
             /* res.status(200).json({"producto" : response}) */
-            res.render("detalle", {
-                producto: response
-            })
+            const dato = req.user.admin;
+            const admin = dato === true
+            if(admin){
+                res.render("detalle", {
+                    producto: response,
+                    admin
+                })
+            }else{
+                res.render("detalle", {
+                    producto: response
+                })
+            }
         } catch (error) {
             res.status(400).json({
                 status: "ERROR",
